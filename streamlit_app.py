@@ -105,18 +105,6 @@ st.markdown(
 with st.sidebar:
     st.header("Configuration")
 
-    # Google API Key input
-    api_key = st.text_input(
-        "Google AI API Key", value=st.session_state.api_key, type="password"
-    )
-    if api_key != st.session_state.api_key:
-        st.session_state.api_key = api_key
-
-    # Qdrant configuration
-    st.subheader("Qdrant Vector DB Settings")
-    qdrant_url = st.text_input("Qdrant URL", value=qdrant_url_link)
-    collection_name = st.text_input("Collection Name", value=collection_name)
-
     # Embedding and model settings
     st.subheader("Model Settings")
     embedding_model = st.selectbox("Embedding Model", ["models/text-embedding-004"])
@@ -168,7 +156,7 @@ if uploaded_file is not None and st.session_state.api_key:
                 if st.session_state.vector_store is None:
                     st.session_state.vector_store = QdrantVectorStore.from_documents(
                         documents=split_docs,
-                        url=qdrant_url,
+                        url=qdrant_url_link,
                         api_key=qdrant_api_key,
                         collection_name=collection_name,
                         embedding=embeddings,
@@ -178,7 +166,7 @@ if uploaded_file is not None and st.session_state.api_key:
 
                 # Setup retriever
                 st.session_state.retriever = QdrantVectorStore.from_existing_collection(
-                    url=qdrant_url,
+                    url=qdrant_url_link,
                     api_key=qdrant_api_key,
                     collection_name=collection_name,
                     embedding=embeddings,
