@@ -46,11 +46,36 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-4. Add your GEMINI API key
-Create a .env file and add:
-GEMINI_API_KEY=your_openai_api_key_here
+4. Create the .streamlit directory
+```bash
+mkdir .streamlit
+```
 
-5. Run the app
+5. Create the secrets.toml file
+```bash
+touch .streamlit/secrets.toml
+```
+
+6. Add your keys to secrets.toml
+
+```bash
+QDRANT_URL = "https://your-qdrant-instance.com"
+QDRANT_API_KEY = "your_qdrant_api_key"
+QDRANT_COLLECTION_NAME = "your_collection_name"
+GEMINI_API_KEY = "your_google_gemini_api_key"
+```
+
+7. Use the Scripts in your code
+```bash
+import streamlit as st
+
+qdrant_url_link = st.secrets["QDRANT_URL"]
+qdrant_api_key = st.secrets["QDRANT_API_KEY"]
+collection_name = st.secrets["QDRANT_COLLECTION_NAME"]
+google_api_key = st.secrets["GEMINI_API_KEY"]
+```
+
+8. Run the app
 ```bash
 streamlit run app.py
 ```
