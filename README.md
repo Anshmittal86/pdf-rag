@@ -4,7 +4,7 @@ An end-to-end Retrieval-Augmented Generation (RAG) application that allows users
 
 ## 🚀 Features
 
-- Upload any PDF document
+- Upload any PDF document maximum 1500 pages (tested).
 - Extracts and chunks text from PDF
 - Generates vector embeddings using OpenAI
 - Stores and searches chunks using FAISS (vector database)
@@ -18,7 +18,7 @@ An end-to-end Retrieval-Augmented Generation (RAG) application that allows users
 - **FAISS** – Vector similarity search
 - **Streamlit** – Frontend interface
 - **PyPDF2 / pdfplumber** – PDF text extraction
-- **tiktoken** – Token management for chunking
+- **Vector Embedding and API** - Google Gemini
 
 ## 📂 Folder Structure
 
