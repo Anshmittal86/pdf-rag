@@ -115,8 +115,8 @@ with st.sidebar:
 
     # Advanced settings
     with st.expander("Advanced Settings"):
-        chunk_size = st.slider("Chunk Size", 100, 2000, 1000)
-        chunk_overlap = st.slider("Chunk Overlap", 0, 500, 200)
+        chunk_size = st.slider("Chunk Size", 100, 4000, 2000)
+        chunk_overlap = st.slider("Chunk Overlap", 0, 1000, 200)
 
     # Clear conversation button
     if st.button("Clear Conversation"):
