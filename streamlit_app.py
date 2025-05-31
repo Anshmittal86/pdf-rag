@@ -75,6 +75,15 @@ st.markdown(
     max-width: 80%;
     align-self: flex-start;
 }
+
+@media (prefers-color-scheme: light) {
+    .main-header {
+        color: #222;
+    }
+    .stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.en45cdb4 {
+        background-color: #f4f4f4;
+    }
+}
 </style>
 """,
     unsafe_allow_html=True,
